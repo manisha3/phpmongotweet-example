@@ -1,6 +1,6 @@
 <?php
 
-  define("OPENSHIFT_DB",      "phpmongotweet");
+  define("OPENSHIFT_DB",      "sampledb");
   define("TWEETS_COLLECTION", "tweets");
 
   function is_option_set($opts) {
@@ -35,10 +35,10 @@
 
 
   function get_db_connection() {
-     $host   = $_ENV["OPENSHIFT_MONGODB_DB_HOST"];
-     $user   = $_ENV["OPENSHIFT_MONGODB_DB_USERNAME"];
-     $passwd = $_ENV["OPENSHIFT_MONGODB_DB_PASSWORD"];
-     $port   = $_ENV["OPENSHIFT_MONGODB_DB_PORT"];
+     $host   = $_ENV["MONGODB_HOST"];
+     $user   = $_ENV["MONGODB_USER"];
+     $passwd = $_ENV["MONGODB_PASSWORD"];
+     $port   = $_ENV["MONGODB_PORT"];
 
      $uri = "mongodb://" . $user . ":" . $passwd . "@" . $host . ":" . $port;
      $mongo = new Mongo($uri);
